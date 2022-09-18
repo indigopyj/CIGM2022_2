@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignment1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="10ec5895-6124-48ab-8bae-28506fc266cc" class="page sans"><header><h1 class="page-title">Assignment1</h1></header><div class="page-body"><p id="6309b999-dba8-47f3-9a0c-c5ab2ab3f589" class=""><strong>written by 20214396, Yeojeong Park</strong></p><h2 id="61b5d9c4-41c2-4e1f-98ae-5ef7a6b2cc7d" class="">0. How to run the file</h2><p id="f6f9e002-1148-42ab-b781-6c36748d1b18" class="">First, run the jupyter notebook and open</p><pre id="eec69bc5-5164-49c3-9006-74b480906568" class="code"><code>jupyter notebook</code></pre><p id="ab82e722-5bf9-4ef3-86dc-87a5bf3d2f15" class="">This will print some information about the notebook server in your terminal, including the URL of the web application (by default, <a href="http://localhost:8888/">http://localhost:8888</a>)</p><p id="bff7721c-d64f-4f76-b0f7-518a7bff3781" class="">Second, if you run the web application, click the file named<strong> ‘Assignment1.ipynb’. </strong></p><p id="83dc2ddc-6968-4fe8-823b-9a2eba684196" class="">Then, click the [Cell]-[Run All] from the menu bar.</p><figure id="590b3360-fb2b-4c5a-90d2-a717ae4c3558" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled.png"><img style="width:459px" src="imgs/Assignment1/Untitled.png"/></a></figure><p id="40b9fcc8-dab7-4d1e-8549-be537b49fdbc" class="">
+</p><p id="97887444-78f2-4be7-9ee0-e55d732d4f79" class="">
+</p><h2 id="bcd8763d-8b37-4556-88a7-8d1328231f1d" class="">1. Report</h2><h3 id="5d66484c-12b6-4bbe-98d9-ce6a9c51168c" class="">INITIALS[5 pts]</h3><figure id="53a42d98-d4a0-4ff3-b59b-b2e2f1931d81" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%201.png"><img style="width:398px" src="imgs/Assignment1/Untitled%201.png"/></a></figure><p id="a77bce81-5f36-4a7e-a5f8-9c849344f646" class="">The width of the image is <strong>4290</strong>, and the height is <strong>2856</strong> according to the code above. And I figured out that the image has <strong>16 bits per unsigned interger</strong> by checking the image’s data type(<span style="border-bottom:0.05em solid">dtype</span>). Therefore, I converted the image into a double-type array by ‘<span style="border-bottom:0.05em solid">.astype(’double’)</span>’.</p><p id="6b895092-d156-4c92-ab9b-85e4cb89c10c" class="">
+</p><h3 id="fef74741-2f6f-4554-8a96-3b6a4af6711a" class="">LINEARIZATION [5 pts]</h3><figure id="00a7c9e0-055b-48d2-a4f4-9455a71659e5" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%202.png"><img style="width:619px" src="imgs/Assignment1/Untitled%202.png"/></a></figure><p id="fbd67088-e9ca-440d-804b-d794f4471c03" class="">Before applying linear transform, the maximum and the minimum values within the image were 15303 and 2002. I applied a linear transform by shifting an image with 2047 and scaling it with (15000 - 2047), so that the value 2047 is mapped to 0, and the value 15000 is mapped to 1. After a linear transform(shift/scale), the maximum and the minimum values were 1.023 and -0.003. Then, I clipped negatives values to 0 and values greater than 1 to 1 by <span style="border-bottom:0.05em solid">‘numpy.clip’</span>.</p><p id="78fa9752-7597-4535-b4bd-261ed2f8b615" class="">
+</p><h3 id="88607d9c-53e8-42f4-a989-a19259980ae9" class="">IDENTIFYING THE CORRECT BAYER PATTERN [20 pts]</h3><figure id="7bd611ce-fe63-49bb-a855-2dacb75c2a15" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%203.png"><img style="width:770px" src="imgs/Assignment1/Untitled%203.png"/></a></figure><p id="d5412235-87ce-4ccb-974b-545ebdc5b53f" class="">In order to find the bayer pattern, I applied white balancing and demosaicing to all kinds of patterns first and then checked which image is printed as normal. White balancing and demosaicing will be explained in details in the next section. Finally, I found that ‘<strong>RGGB</strong>’ is the right patterns since only ‘RGGB’-patterned image has natural colors.</p><p id="bc9d8390-45d9-4d9d-93cc-00ce3e46f033" class="">The code for converting bayer pattern to RGB channels is as follows:</p><figure id="e603d20a-ba6d-44a4-8c29-27f8ea431474" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%204.png"><img style="width:440px" src="imgs/Assignment1/Untitled%204.png"/></a></figure><p id="579ffeef-4d7f-4d9f-859d-3bb3aa7b1ea2" class="">You need to filter only necessary pixels in each channel.</p><p id="f77bba07-1506-4c2a-9736-3cb88f1f61b9" class="">For example, assume that we consider converting ‘RGGB’ pattern to RGB channels.</p><p id="0bd1e9ee-3a67-45ca-a3ea-7939dc6262b5" class="">For channel ‘<strong>R</strong>’, select the pixels in the array between <strong>0th index</strong> and the end of the row <strong>every 2 step</strong> along the <strong>x-axis</strong> and between <strong>0th index</strong> and the end of the column <strong>every 2 step</strong> along the <strong>y-axis</strong>.</p><p id="dea52ce8-fd28-4257-ae31-b5c7e1fb37fd" class="">For channel ‘<strong>B</strong>’, select the pixels in the array between <strong>1th index</strong> and the end of the row <strong>every 2 step</strong> along the <strong>x-axis</strong> and between <strong>1th index</strong> and the end of the column <strong>every 2 step</strong> along the <strong>y-axis</strong>.</p><p id="f02de9ad-b8af-4965-ac22-2e3bffc55ea6" class="">However, for channel ‘<strong>G</strong>’, the process is slightly different, since green pixels have two different patterns:</p><ol type="1" id="1e4a8909-ecc7-4045-b89d-84032e39d47b" class="numbered-list" start="1"><li>Select the pixels in the array between <strong>1th index</strong> and the end of the row <strong>every 2 step</strong> along the <strong>x-axis</strong> and between <strong>0th index</strong> and the end of the column <strong>every 2 step</strong> along the <strong>y-axis</strong>.</li></ol><ol type="1" id="9720c3e4-c042-4270-940a-26a9b85c6630" class="numbered-list" start="2"><li>Select the pixels in the array between <strong>0th index</strong> and the end of the row <strong>every 2 step</strong> along the <strong>x-axis</strong> and between <strong>1th index</strong> and the end of the column <strong>every 2 step</strong> along the <strong>y-axis</strong>.</li></ol><p id="526fd2dc-d970-4519-807c-faa5cf1f8028" class="">
+</p><p id="334ef7b4-b49a-4b15-aee9-e55427da9fa0" class="">Then, gather the filterd pixels for each channel and stack them along the color dimension.</p><p id="8176542d-878d-47cb-80ef-4d816f44150e" class="">Finally, we can get the RGB-channel image.</p><p id="15db566a-f2bc-452d-b8f6-ccea6ad8546d" class="">
+</p><h3 id="23c08af0-2960-45c6-b224-af0262bedbb3" class="">WHITE BALANCING [20 pts]</h3><figure id="f6ea7cb7-5795-4cbf-b6c1-6c98f7449f5e" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%205.png"><img style="width:585px" src="imgs/Assignment1/Untitled%205.png"/></a></figure><p id="44558e35-fdd6-4609-a284-1c5c9407e25b" class="">I found that ‘RGGB’ is the right pattern by the above section, so I changed RGGB 1-channel to RGB 3-channels by a function ‘<span style="border-bottom:0.05em solid">bayer_to_rgb</span>’. With RGB image, I applied white balancing with two options.</p><p id="890a99f1-84e9-424a-9223-bf121403a607" class="">For gray world automatic white balancing, I computed per-channel average and normalize each channel by its average. Then, I multiplied them by green channel average.</p><p id="c7b98806-8534-4f6b-a383-f4b918de2745" class="">For white world automatic white balancing, I computed per-channel maximum and normalize each channel by its maximum. Then, I multiplied them by green channel maximum.</p><figure id="e70925a2-d2e3-4f28-9233-bd88c893e27b" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%206.png"><img style="width:615px" src="imgs/Assignment1/Untitled%206.png"/></a></figure><p id="7225defe-e5c9-4cce-b753-fd35fc78c8bc" class="">This is the result of <strong>gray-world</strong> white balancing.</p><figure id="eb001276-b368-4a31-808b-612ec62d05cf" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%207.png"><img style="width:586px" src="imgs/Assignment1/Untitled%207.png"/></a></figure><p id="2edb61f3-d6ff-49e7-ac02-d6410b1bddfb" class="">This is the result of <strong>white-world</strong> white balancing.</p><p id="e57d19f8-9652-4fd4-b209-c573046c9a76" class="">
+</p><h3 id="aae504e9-d531-475c-8cfe-4a2f0e1bd233" class="">DEMOSAICING [25 pts]</h3><figure id="02ba29ac-3e8f-49c8-90b0-642921356900" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%208.png"><img style="width:927px" src="imgs/Assignment1/Untitled%208.png"/></a></figure><p id="c3aec8f4-e87b-40fa-93e6-5240cd199b80" class="">I utilized ‘<span style="border-bottom:0.05em solid">cv2.resize</span>’ function for bilinear interpolation. By reducing the size of the image by one-fourth, empty(zero-valued) pixels are filled with values interpolated by four neighbors automatically.</p><p id="e6f62911-4653-410a-b112-c4ae3add9de7" class="">Finally, we can check that <strong>the gray-world balanced image looks better than the white-world balanced image.</strong></p><p id="af213dd2-3aec-46b2-a3c6-39fa938b72f4" class="">
+</p><h3 id="87c056b2-0c31-4c2f-a1f1-84041f68b87b" class="">BRIGHTNESS ADJUSTMENT AND GAMMA CORRECTION [20 pts]</h3><figure id="033923e9-2552-4b45-a121-eefd9f7937db" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/Untitled%209.png"><img style="width:484px" src="imgs/Assignment1/Untitled%209.png"/></a></figure><p id="d639be51-bec2-4bd1-afc2-43187ea99211" class="">To brighten the image, I converted the image to grayscale by ‘<span style="border-bottom:0.05em solid">color.rgb2gray</span>’ to get the maximum grayscale value. I chose <strong>0.2</strong> for a scaling factor.</p><figure id="f852512d-6996-425d-b8b9-271e74df3e34" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/brighten.png"><img style="width:560px" src="imgs/Assignment1/brighten.png"/></a></figure><p id="b9a90231-84cc-4a72-8b2a-d28eb993b176" class="">This is the result of brightening.</p><p id="cb5b3d18-39b0-416a-8ac6-d9bfaa4111b8" class="">
+</p><p id="4613cf44-f2ae-4fc0-82f1-041227e763f5" class="">Then, I applied tone reproduction as the final step. I checked every pixel in each channel whether it met the conditions (C ≤ 0.0031308 or C ≥ 0.0031308).</p><figure id="82971ddb-e9fc-4bad-addf-dc5cd4e97390" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/gamma.png"><img style="width:560px" src="imgs/Assignment1/gamma.png"/></a></figure><p id="a511a616-ab3d-4f25-b38e-abc92a78d915" class="">This is the final image after tone reproduction.</p><p id="4af4f2da-e910-4c35-b0fc-6e593d8becf2" class="">
+</p><h3 id="9c90ba71-93a8-4dab-8c46-4e1a3c4d7744" class="">COMPRESSION [5 pts]</h3><figure id="77dfcaa6-c967-49d1-98d2-61f2c134032b" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/compression.png"><img style="width:796px" src="imgs/Assignment1/compression.png"/></a></figure><p id="a4807548-aa31-41c1-a1da-c85f7ee58a04" class="">First, I saved the final image as a PNG file and a JPEG file with quality setting 95. </p><p id="e453ab36-1de3-4e3a-a5e8-ac6cc2a7ad09" class="">The difference between PNG and JPEG is that JPEG contains less data than PNG. Therefore, it has lower quality and looks more unnatural but the size of file is smaller than PNG. </p><p id="008f91a6-fe94-45b2-9798-4f36dd053db8" class="">The compression ratio between PNG and JPEG is about <strong>6.76</strong>.</p><p id="e6aef16a-0dae-4ebf-abfa-c1c8b36345cf" class="">&lt;img&gt;</p><p id="3a758469-5167-49ed-a0a4-0737556a0242" class="">This is the original PNG image.</p><p id="135931b1-11bd-4c11-bbe1-22dbd345af37" class="">
+</p><figure id="f6b913dd-d0e8-4162-b78a-3ffc73509d60" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/final_img.jpeg"><img style="width:2145px" src="imgs/Assignment1/final_img.jpeg"/></a></figure><p id="65f8a601-d846-4da6-b237-ed4f9b9f7110" class="">This is the compressed JPEG image with quality setting 95.</p><p id="e5bb5655-0f6a-45d1-b2c1-bc9240ed4be1" class="">
+</p><p id="67fb317e-25b6-4e59-a86d-01f9c197cdca" class="">I also figured out that if the image is compressed with quality setting <strong>25</strong>, it is hardly distinguishable from the original image. However, settings lower than <strong>25</strong> make the color value of the image changed. The compression ratio between this image and the original PNG image is about <strong>43.15</strong>.</p><figure id="bc66f681-cf1c-46da-bfb1-445a1ab31370" class="image"><a href="Assignment1%2010ec5895612448ab8bae28506fc266cc/final_img_test.jpeg"><img style="width:2145px" src="imgs/Assignment1/final_img_test.jpeg"/></a></figure><p id="b9c0e196-520a-468a-ba63-c720c6671ad7" class="">This is the compressed JPEG image with quality setting 25.</p><p id="01677ca6-2dcd-455d-9627-5f9c838bba76" class="">
+</p></div></article></body></html>
