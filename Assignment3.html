@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignment3</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="19425595-418e-4fd7-89b0-6f85b9f00afe" class="page sans"><header><h1 class="page-title">Assignment3</h1></header><div class="page-body"><p id="86a9ed5a-7e4e-42a8-931b-9fa0560c8716" class=""><strong>written by 20214396, Yeojeong Park</strong></p><h2 id="a14bf3bb-2423-442d-ad87-9ffe9df3d0a4" class="">0. How to run the file</h2><p id="64cc7e16-8637-43e4-8607-5e7aed0ec422" class="">First, run the jupyter notebook and open</p><pre id="9de15238-3cdb-4965-8131-b2fc3ed66f9a" class="code"><code>jupyter notebook</code></pre><p id="086fe692-eeac-4054-8d47-c07d95cd1ac8" class="">This will print some information about the notebook server in your terminal, including the URL of the web application (by default, <a href="http://localhost:8888/">http://localhost:8888</a>)</p><p id="831c1e73-0917-44b1-976a-973b4bd3f308" class="">Second, if you run the web application, click the file named<strong> ‘Assignment2.ipynb’. </strong></p><p id="ada3950d-0ee0-4218-8c82-346d88d695ea" class="">Then, click the [Cell]-[Run All] from the menu bar.</p><figure id="b4730fbb-b5f5-4e98-baed-d70c4e65c95d" class="image"><a href="imgs/Assignment3/Untitled.png"><img style="width:459px" src="imgs/Assignment3/Untitled.png"/></a></figure><p id="1ece0f5c-264d-43b4-9eb3-d53b51dfd034" class="">
+</p><p id="65c28fd8-4610-4f3c-8161-593b607e6408" class="">
+</p><h2 id="1be33de8-7a2e-4e8a-9d70-95e7018c84b4" class="">1. Report</h2><h3 id="c7d62793-f14f-45f9-af9f-a5ae21206a18" class=""><strong>TOY PROBLEM (20 PTS)</strong></h3><figure id="232c6ae3-e6a3-49a0-a420-96bcffbe8efb" class="image"><a href="imgs/Assignment3/toy_code.png"><img style="width:769px" src="imgs/Assignment3/toy_code.png"/></a></figure><p id="83da49ba-6e68-40be-8d42-141110103f39" class="">First, I load the toy image to reconstruct and then I checked its size. According to the hint, “<strong>im2var</strong>” is a function that maps each pixel to a variable number. Also, I used ‘<strong>scipy.sparse.lil_matrix</strong>’ to generate a sparse matrix for saving memery and processing time, as <strong>A</strong>. </p><p id="d2e31c73-22a9-41e1-9d07-f16e12d57feb" class="">Now I should solve the equation <strong>(Av-b)^2</strong>, where <strong>A, v, b</strong> are a sparse matrix, reconstruction image, and gradient vector respectively. Then I calculate the difference between the x-gradients of v and the x-gradients of source image. I also calculate the difference between the y-gradients of v and y-gradients of source image. Finally, I compute the difference between the colors of the top left corners of the two images.</p><p id="6b28260c-5880-47ba-93e8-982b6a72b5d0" class="">
+</p><figure id="e5dcc048-8dba-4f37-9deb-383960145841" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.08.24.png"><img style="width:393px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.08.24.png"/></a></figure><p id="031bbafd-8526-4332-8e54-bb9c8164b248" class="">To get <strong>v</strong>, I used the function ‘<strong>lsqr</strong>’ from <strong>scipy.sparse.linalg</strong>, which is same as ‘\’ in matlab. I reshaped the vector to visualize it as an image.</p><figure id="140914cf-7335-48be-bd67-53c8cfce41f0" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.10.25.png"><img style="width:397px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.10.25.png"/></a></figure><p id="b776c26a-fdb4-4bd4-b2f4-7ded4012931c" class="">Finally, I successfully reconstruct the image.</p><p id="c4f3d0ae-e6fc-445e-9e09-165761517230" class="">
+</p><p id="5e9167d1-cecd-47eb-9731-84dfb63dc10c" class="">
+</p><h3 id="0acb6182-fc43-4447-85ae-08bdd1a38084" class=""><strong>POISSON BLENDING (50 PTS)</strong></h3><div id="a787f026-cf9f-4c19-82d1-2694fc47f24a" class="column-list"><div id="fbccaf6a-fe67-4376-bfea-845e7ba45a1a" style="width:50%" class="column"><figure id="98e95a2b-80dc-4ca0-82c8-c3bec7d75932" class="image"><a href="imgs/Assignment3/hiking.jpg"><img style="width:2816px" src="imgs/Assignment3/hiking.jpg"/></a></figure></div><div id="9d5d72f9-f10f-4022-988c-8c6de4bbe10b" style="width:50%" class="column"><figure id="8728d5c9-0a05-4362-9d6c-604538a8830e" class="image"><a href="imgs/Assignment3/penguin.jpg"><img style="width:333px" src="imgs/Assignment3/penguin.jpg"/></a></figure></div></div><p id="761fb03d-331d-46c9-b276-e1b22beae992" class="">The main goal of poisson blending is to insert this penguin on top of the snow in the hiking image. To do this, I cropped the penguin image and generate its polygon mask by interactive jupyter notebook. I referred some open source code on the web. Here, I saved the masks as ‘.npy’ files first, then I loaded them.</p><p id="93148ffa-f018-4a5e-8ec0-558e1ebd6cf1" class="">Then, I cropped the penguin image and the mask for having a mimimum space.( I also referred the open source code.)</p><figure id="013b4a9b-5427-43ca-8379-613270a0d68a" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.17.40.png"><img style="width:407px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.17.40.png"/></a></figure><p id="5c90138f-fad6-4c5a-9eeb-8f8d92933d2f" class="">I randomly picked the location of the penguin as (777, 1991). </p><p id="2ffcb8c2-473c-43e0-a6e5-a534fd083ca7" class="">If I only just paste the image, the image I can get is as follows:</p><figure id="52d2c429-752a-439b-be97-fb3614501284" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.19.39.png"><img style="width:370px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.19.39.png"/></a></figure><p id="132587af-e686-4161-bc5e-5a19c89cb854" class="">Then, I blend them by poisson blending.</p><figure id="72e5d4e1-7dd7-4896-b648-53946a59522c" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.04.01.png"><img style="width:561px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.04.01.png"/></a></figure><p id="b5f4b543-4c3c-41d2-9d9a-29c097d59f33" class="">I followed the same process as the toy problem.</p><p id="7289b432-bfcc-41ce-8a0e-087a0efe2038" class="">(Av - b) ^ 2</p><p id="e0accbec-16d6-43b2-a57f-47818be5c8c9" class="">A : sparse matrix</p><p id="e0e7491a-efdf-4620-a2e1-c41d75934e69" class="">v: output image</p><p id="e8abac63-cc3c-4252-bbe1-ce361931b1af" class="">b: desired gradient matrix</p><p id="86289fc8-37b8-44d1-808e-252163a0feaa" class="">
+</p><p id="8cadc1c9-f07a-416f-81e9-799ee8d244c2" class="">First of all, pixels outside the mask is simply same as the target pixels. </p><p id="857adc58-385c-4ecf-a83f-ff78e8f7ee77" class="">So A’s values are just 1 and b’s values are the same as the target pixel values.</p><p id="1083c525-b6fb-46df-a163-37e60cc605ec" class="">However, for the pixels inside the mask should be process differently.</p><p id="3a13e837-8da9-43c4-b97a-59bd481e5fdf" class="">I utilized laplacian matrix to calculate the gradients according to each center pixel.</p><figure id="98269fbd-be2a-4e03-b643-d5e8fefd599c" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.28.13.png"><img style="width:374px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.28.13.png"/></a></figure><p id="40d202d7-ea5f-41f6-8f7d-511dca69c8e1" class="">Laplacian matrix can be set as above.</p><p id="78fd211a-13dc-4167-ba89-9bebfe1c709d" class="">So I set the values of A as 4 on the diagonal and -1 on the neighboring positions of the center pixel (y,x). The values of b is also set as the same way but with the source image’s values.</p><p id="6eb1b1c7-1ad2-45a7-87dc-36ddfae3a141" class="">Note that I processed all the out-of-range error that can be occurred with if-else condition.</p><p id="3e67eb4e-3e8e-472b-b61d-df4332fa2855" class="">
+</p><p id="8462ee9c-c193-4f7c-9fde-cb7542abd9d0" class="">After this process, I applied the equation solver to get the target image.</p><p id="107f8add-acb3-4409-bfe8-0fae6042ddd0" class="">
+</p><figure id="cfd28e72-95c7-475e-8304-ea42caed3b1e" class="image"><a href="imgs/Assignment3/penguin.png"/></a><img style="width:387px" src="imgs/Assignment3/penguin.png"/></figure><p id="08e22e23-2be8-4ee3-ad00-9009ed98ca85" class="">This is the final result of poisson blending.</p><p id="8ace6fe5-f232-44f0-bfe3-61a7f7e229d0" class="">I did the same process to the other penguin image and the result is as follows:</p><figure id="234d7581-f2c2-4b87-840d-013b8ea53d20" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/penguin_chick.png"/></a></figure><h3 id="cf9844ab-33fc-4cac-8daf-4d3d2a6e3d08" class=""><strong>BLENDING WITH MIXED GRADIENTS (10 PTS)</strong></h3><p id="694e5e93-965d-4dfd-ade6-e813b50c7c65" class="">I should use the gradient in source or target with the larger magnitude as the guide, rather than the source gradient.</p><p id="523fdf1b-bdb4-4fde-882a-416330917262" class="">So I replace the steps for setting b’s values with ‘<strong>mixed_gradient</strong>’ function.</p><figure id="9b65f5fb-2b8a-44d6-ab30-fe1553bff38b" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.04.19.png"><img style="width:599px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.04.19.png"/></a></figure><figure id="f92e8864-4292-4ce0-9936-cf46960bf035" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.04.30.png"><img style="width:485px" src="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.04.30.png"/></a></figure><p id="a57b4513-f73f-452e-ac7f-ec6e229fca90" class="">I compare the gradients of source and target and choose one that has larger values. Similar to the previous step, the gradients depeding on four neighboring pixels are considered.</p><p id="889418c7-e3f1-4fba-a90e-8b4cac9541c5" class="">
+</p><p id="5344726f-aeaf-4cc0-b429-a95c24396109" class="">The result is presented as follows:</p><figure id="98187e79-5005-4300-9ec6-4d83d9e07afb" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/penguin_chick_mixed.png"/></a></figure><p id="277a7638-0c2c-4f81-91da-16aaadfdbbb8" class="">
+</p><p id="8dd781e6-440b-4db4-953f-d38f00b31b0d" class="">
+</p><h3 id="f9f15b8c-01de-4bc5-b0bb-adb189075171" class=""><strong>YOUR OWN EXAMPLES (20 PTS)</strong></h3><p id="84ede5fd-ee20-44cb-b08f-86205d1ebfa5" class="">I tried three different examples.</p><figure id="2f74bc42-d5f6-4533-9d42-d7915df57166" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/astronaut_space.png"/></a></figure><ul id="143ff0a0-de45-4b9b-adce-49e0a2207816" class="bulleted-list"><li style="list-style-type:disc">An astronaut in the space</li></ul><figure id="d3782e7e-4eea-483e-bc95-f80e6161c29b" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/astronaut_space_mixed.png"/></a></figure><ul id="28463e70-c84e-418e-bf6a-cfc921a0bdb9" class="bulleted-list"><li style="list-style-type:disc">An astronaut in the space(w. Mixed gradients)</li></ul><p id="8c6e4539-9223-4e91-a47e-351ea99699d1" class="">
+</p><p id="ad5ea354-0984-4a4c-bff1-559dea6ed3eb" class="">
+</p><figure id="d251a430-ece0-4496-b070-02cff2608d3f" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/nemo_underwater.png"/></a></figure><ul id="755e08e8-b860-45b5-9fba-fc8a59ff9b94" class="bulleted-list"><li style="list-style-type:disc">A fish under water</li></ul><figure id="0234bccc-2627-45ac-b14d-73cb812a411e" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/nemo_underwater_mixed.png"/></a></figure><ul id="b30d51a4-112a-4da7-836b-cba46832d413" class="bulleted-list"><li style="list-style-type:disc">A fish under water(w. Mixed gradients)</li></ul><p id="5acbac5f-8e09-4401-ad08-cfeb83842d7a" class="">
+</p><figure id="403c83f3-ca92-47f7-b867-b628aca0cd38" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/whale_sky.png"/></a></figure><ul id="cceb6047-69c0-4aac-9ee0-c9ec0ec0582e" class="bulleted-list"><li style="list-style-type:disc">A whale in the sky</li></ul><figure id="f4a8926a-fdae-480f-8bbc-683b69826895" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/whale_sky_mixed.png"/></a></figure><ul id="862732ec-f8c7-4da3-87e0-c9a580f667c1" class="bulleted-list"><li style="list-style-type:disc">A whale in the sky(w. Mixed gradients)</li></ul><p id="f89da963-7053-4a76-aa34-f78dedaee58e" class="">
+</p><p id="3e7dce14-da7d-4820-8091-b694594b04e6" class="">However, there are some failure cases.</p>
+<figure id="98187e79-5005-4300-9ec6-4d83d9e07afb" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/nemo_underwater_mixed.png"/></a></figure>
+<figure id="98187e79-5005-4300-9ec6-4d83d9e07afb" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/letter_sky_mixed.png"/></a></figure>
+<p id="74f4264d-20ed-4677-b508-7890d0953553" class="">You can see the black spots under the blue fish and bleeding artifacts during bledning with mixed gradeints.</p>
+<figure id="98187e79-5005-4300-9ec6-4d83d9e07afb" class="image"><a href="imgs/Assignment3/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-06_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_4.55.55.png"><img style="width:387px" src="imgs/Assignment3/letter_sky.png"/></a></figure>
+<p id="12ce0b21-802c-4f5c-89f3-9d93f18b2284" class="">Also, by normal poisson blending, I failed to blend the the letters and also found the white spots, and the color is distorted and couldn’t find its original color. Because of the blurring effect, the background clouds are removed between the letters.</p><h3 id="4ffe5d80-7fb8-4509-88ef-5e076af9906d" class=""></h3><p id="3774ea62-6dcf-4491-b4cd-a7dd0e782d1b" class="">
+</p><p id="6fcf7049-ec31-4eaa-a9ce-9ed5a8cc326f" class="">
+</p><h3 id="aaefb3ae-0183-4b0a-9c56-f58954d2ec39" class="">ETC</h3><p id="e716320d-23f8-4cb7-9ebf-4bb5858c4e9e" class="">I attached the input images and the result images in the <strong>data/</strong> and <strong>results/ </strong>folder respectively. Please check the final results by watching them!</p><p id="24571074-af62-4c08-bbfe-f200613447e6" class="">
+</p></div></article></body></html>
