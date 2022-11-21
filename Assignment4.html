@@ -1,0 +1,794 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignment4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a944e6c5-b983-4c85-8b64-f017c6f8604d" class="page sans"><header><h1 class="page-title">Assignment4</h1></header><div class="page-body"><p id="b6359c7a-7677-4061-a132-8794578703f8" class=""><strong>written by 20214396, Yeojeong Park</strong></p><h2 id="15faab40-d20c-4eee-96cd-fbef29431a33" class="">0. How to run the file</h2><p id="b5032023-c9d3-4d8f-963f-d922ae750fc5" class="">First, run the jupyter notebook and open</p><pre id="9a31ca31-c527-443a-b126-9daa08544f8f" class="code"><code>jupyter notebook</code></pre><p id="fb4ded1a-496a-4249-87e1-0c075eec042d" class="">This will print some information about the notebook server in your terminal, including the URL of the web application (by default, <a href="http://localhost:8888/">http://localhost:8888</a>)</p><p id="3ed2f0ca-8545-410e-a6c7-bee33b526522" class="">Second, if you run the web application, click the file named<strong> ‘Assignment2.ipynb’. </strong></p><p id="b49ad95b-41ab-482d-bd87-b955287910ff" class="">Then, click the [Cell]-[Run All] from the menu bar.</p><figure id="4dc67e7a-a293-47a5-8c86-76864c9836dc" class="image"><a href="imgs/Assignment4/Untitled.png"><img style="width:459px" src="imgs/Assignment4/Untitled.png"/></a></figure><p id="a858e1af-3617-4bf0-9bc1-30a07e8bfbd5" class="">
+</p><p id="39175152-a92e-4dfa-8cb7-f660eaefef12" class="">
+</p><h2 id="0dd6a02f-adaf-422c-b7fb-d2db3b4a0ad1" class="">1. Report</h2><h3 id="3357ad66-7d9d-433b-af15-9f262c72e9ad" class="">0.1 Convert .nef to .tiff</h3><pre id="b644a98a-bcb8-4b66-8ef1-bb3413d5df4c" class="code"><code>dcraw -w -q 3 -o 1 -T -4 exposure*.nef</code></pre><p id="671c8cac-4fc5-429a-b460-c6a8984704e0" class="">I used the command above to convert .nef files to .tiff files.</p><p id="f14c433d-c2e8-4d02-a09b-684eb5e9004a" class="">The meaning of flags are defined as follows:<div class="indented"><p id="54a2afd8-7261-4876-a741-e397968ddb9e" class="">-w : use white balancing</p><p id="2421c514-d6aa-4555-b547-df3fffb5fb04" class="">-q : interpolation quality for demosaicing.</p><p id="c6040d11-8522-4648-8f59-03898e32bfc2" class="">-o : output colorspace(1: sRGB)</p><p id="21cd844e-0288-4699-b60e-01f51c752af2" class="">-T : convert to .tiff files with 16-bit.</p></div></p><p id="e200b475-44f7-4011-8958-8146b50927dc" class="">
+</p><p id="7ecd7dae-1442-4a3a-8858-9eb5c82d9de5" class="">
+</p><h3 id="77f7e642-c21e-427d-94dc-f346e43725cc" class="">1.1 LINEARIZE RENDERED IMAGES</h3><figure id="5cbcb784-dfd9-46fb-8ec9-2ffe1b7719d4" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.08.19.png"><img style="width:1250px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.08.19.png"/></a></figure><p id="7e952eef-75cb-4742-b7ee-d3cd29851c0b" class="">Firstly, I load input images and resize them by scaling 1/10 since it takes a lot of time to process them with original size. </p><p id="837d63ad-3046-4a70-856c-732ba3568462" class="">Then, I group images by each channel R/G/B and define the shutter speed individually.</p><p id="fb279221-6f51-4ebd-ab91-23a1064ff206" class="">I can recover ‘g’ by solving the least squares optimization problem, defined in Eq. (2). We convert this equation to (Ax-b)^2 linear algebra to solve it easily.</p><figure id="f4164088-3dbe-49c7-ac18-2aaeee6874ea" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.19.52.png"><img style="width:1168px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.19.52.png"/></a></figure><p id="ef884e3a-a714-44ce-a978-48479df1b8f3" class="">For reconstructing the inverse function, we can handle the whole pixels within the image. However, it is too inefficient, thereby I choose several representative pixels within the image by resizing it to (10,10). </p><figure id="11af795d-3ec1-41f3-937f-2e748370950a" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.22.09.png"><img style="width:1720px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.22.09.png"/></a></figure><p id="0a170425-a476-4aad-bec5-4a0ab6e628dc" class="">I set lambda ‘l’ and weight ‘w’ temporarily since it is not defined and not important in this section. I applied the same process to individual channel.</p><figure id="c5008651-4ed8-49e8-931e-fdb335300484" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.24.38.png"><img style="width:980px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.24.38.png"/></a></figure><p id="77c2f7a1-2440-4c1a-924f-9a15edb51792" class="">The picture above is the graph of ‘g’ function of each channel that I plot.</p><p id="36661f03-b980-44e5-8454-39ef903cf49e" class="">
+</p><p id="9ccf6bf1-b0a7-429a-89e7-276842a6694c" class="">
+</p><p id="518bd786-973c-4bf2-942d-e7ab4bb31c0c" class="">
+</p><h3 id="cb89d220-182e-4ded-80aa-169803635ce4" class="">1.2 <strong><strong>MERGE EXPOSURE STACK INTO HDR IMAGE</strong></strong></h3><p id="ebda5de8-f34d-463a-9006-848cfbe6983c" class="">In this section, I should create 8 HDR images: 2 sets of images (RAW and rendered) x 2 merging schemes (linear and logarithmic) x 2 weighting schemes (two out of uniform, tent, and Gaussian).</p><p id="631253b5-411c-430e-a8c0-57acb53e2c2f" class="">First of all, handling RAW and rendered image are loading .tiff and .jpg respectively.</p><p id="2f23c437-02f0-4341-b2b9-60da7d9ac486" class="">Second, merging images linearly and logarithmically are following equation 5 and 6 respectively. </p><p id="fa71dd9f-6688-42fd-8f48-0fef9882810e" class="">Finally, I choose ‘tent’ and ‘gaussian’ as my weighting schemes implemented as follows:</p><figure id="d7eeb5c8-1543-4174-ba15-fda714a95853" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.42.24.png"><img style="width:1222px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_3.42.24.png"/></a></figure><p id="603d1e1d-2f1a-41ea-9691-059a5c0cdd8a" class="">
+</p><p id="a6693b95-c764-4f04-983f-d7ec6ccf053e" class="">I define the function to control these 8 options to generate the final HDR.</p><pre id="6252b542-6b2c-48f7-9cf5-33a0b39c915c" class="code"><code>def compute_g_function(rgb_list, log_B, w, l=10): # the function for defining g function
+    g_list = []
+    for ch in range(len(rgb_list)):
+        img_sample = np.array([cv2.resize(img[ch], (10,10)).flatten() for img in img_list], dtype=np.float32)
+        g, _ = gsolve(img_sample, log_B, l, w)
+        g_list.append(g)
+    
+    return g_list
+
+def compute_hdr(raw=True, linear=True, weight_scheme=&#x27;uniform&#x27;, name=&#x27;hdr.hdr&#x27;):
+    print(f&quot;file name : {name}, raw : {raw}, linear : {linear}, weight_scheme : {weight_scheme}&quot;)
+    
+    resize_h, resize_w = 400, 600 # resized scales
+    if raw:
+        img_list = [cv2.resize(cv2.imread(f&#x27;exposure_stack/exposure{idx}.tiff&#x27;, flags=cv2.IMREAD_UNCHANGED), 
+                               (resize_w, resize_h), cv2.INTER_AREA) for idx in range(1, 17)]
+        img_list = [(im / (2**16-1) * 255.0).astype(np.uint8) for im in img_list] # normalize 16-bit .tiff to 8-bit
+    else:
+        img_list = [cv2.resize(cv2.imread(f&#x27;exposure_stack/exposure{idx}.jpg&#x27;), (resize_w, resize_h))
+                    for idx in range(1, 17)]
+    
+    w = weight(scheme=weight_scheme) # define weighting function
+    
+    img_list_r = [img[..., 2] for img in img_list]
+    img_list_g = [img[..., 1] for img in img_list]
+    img_list_b = [img[..., 0] for img in img_list]
+    
+    if not raw: # define inverse g function
+        # Note: the weighting scheme should be the same as the one for logarithmic merging.
+        g_list = compute_g_function([img_list_r, img_list_g, img_list_b], log_B, w)
+        g_r, g_g, g_b = g_list[0], g_list[1], g_list[2]
+    
+    print(&quot;compute inverse function&quot;)
+
+    sum_r = np.zeros((resize_h*resize_w, 1))
+    sum_g = np.zeros((resize_h*resize_w, 1))
+    sum_b = np.zeros((resize_h*resize_w, 1))
+
+    Z_r = np.array([img.flatten() for img in img_list_r])
+    Z_g = np.array([img.flatten() for img in img_list_g])
+    Z_b = np.array([img.flatten() for img in img_list_b])
+
+    tmp_hdr = np.zeros((resize_h*resize_w, 3)) # array for flattened vector
+    final_hdr = np.zeros((resize_h, resize_w, 3)) # array for final hdr
+
+    num_pixels = resize_h * resize_w
+
+    for i in range(num_pixels):
+        sum_w_r = 0
+        sum_w_g = 0
+        sum_w_b = 0
+        for j in range(len(img_list)):
+            z_r = int(Z_r[j,i])
+            z_g = int(Z_g[j,i])
+            z_b = int(Z_b[j,i])
+
+            if raw:
+                v_r = z_r
+                v_g = z_g
+                v_b = z_b
+            else:
+                v_r = g_r[z_r]
+                v_g = g_g[z_g]
+                v_b = g_b[z_b]
+            if linear:
+                # need to divide the values by shutter speed
+                sum_r[i] += w[z_r] * v_r / B[j]
+                sum_g[i] += w[z_g] * v_g / B[j]
+                sum_b[i] += w[z_b] * v_b / B[j]
+            else: 
+                # need to subtract the logarithmic shutter speed from the results of inverse function
+                sum_r[i] += w[z_r] * (v_r - log_B[j])
+                sum_g[i] += w[z_g] * (v_g - log_B[j])
+                sum_b[i] += w[z_b] * (v_b - log_B[j])
+
+            sum_w_r += w[z_r]
+            sum_w_g += w[z_g]
+            sum_w_b += w[z_b]
+
+        tmp_hdr[i][2] = sum_r[i] / sum_w_r if sum_w_r &gt; 0 else sum_r[i]
+        tmp_hdr[i][1] = sum_g[i] / sum_w_g if sum_w_g &gt; 0 else sum_g[i]
+        tmp_hdr[i][0] = sum_b[i] / sum_w_b if sum_w_b &gt; 0 else sum_b[i]
+        sum_w_r = 0
+        sum_w_g = 0
+        sum_w_b = 0
+    # reshape the flattened vector to original size
+    final_hdr[..., 0] = np.reshape(tmp_hdr[:,0], (resize_h, resize_w))
+    final_hdr[..., 1] = np.reshape(tmp_hdr[:,1], (resize_h, resize_w))
+    final_hdr[..., 2] = np.reshape(tmp_hdr[:,2], (resize_h, resize_w))
+    print(&quot;merge images&quot;)
+    
+    if not linear: # for logarithmic merging, the output should be exponentialized
+        final_hdr = np.exp(final_hdr)
+    
+    cv2.imwrite(name, final_hdr.astype(np.float32))
+    print(f&quot;{name} saved succesfully &quot;)</code></pre><p id="2ee2b06b-30a6-4cdf-9860-440cc8e3b8af" class="">
+</p><p id="7a865db5-12e7-4a67-95d2-a6dc51f1f8f0" class="">I run the lines to generate 8 HDR images of all possible cases.</p><pre id="e032c0d0-f89f-49a9-8224-91c30147499c" class="code"><code>compute_hdr(raw=False, linear=False, weight_scheme=&#x27;tent&#x27;, name=&#x27;render_log_tent.hdr&#x27;)
+compute_hdr(raw=False, linear=False, weight_scheme=&#x27;gaussian&#x27;, name=&#x27;render_log_gaus.hdr&#x27;)
+compute_hdr(raw=True, linear=False, weight_scheme=&#x27;tent&#x27;, name=&#x27;raw_log_tent.hdr&#x27;)
+compute_hdr(raw=True, linear=False, weight_scheme=&#x27;gaussian&#x27;, name=&#x27;raw_log_gaus.hdr&#x27;)
+compute_hdr(raw=True, linear=True, weight_scheme=&#x27;gaussian&#x27;, name=&#x27;raw_linear_gaus.hdr&#x27;)
+compute_hdr(raw=True, linear=True, weight_scheme=&#x27;tent&#x27;, name=&#x27;raw_linear_tent.hdr&#x27;)
+compute_hdr(raw=False, linear=True, weight_scheme=&#x27;gaussian&#x27;, name=&#x27;render_linear_gaus.hdr&#x27;)
+compute_hdr(raw=False, linear=True, weight_scheme=&#x27;tent&#x27;, name=&#x27;render_linear_tent.hdr&#x27;)</code></pre><p id="41acbcc3-a5ec-43cf-bde6-1a3a9438b640" class="">From now on, I will shortly define the each HDR results as following notations:</p><ul id="4ff956b6-4f46-4f44-9ab5-fb988e77dd05" class="bulleted-list"><li style="list-style-type:disc"><strong>render_log_tent</strong> : a HDR file by logarithmic merging using ‘tent’ weight with JPG files</li></ul><ul id="5a4c22da-5898-42c3-809b-f2033235048b" class="bulleted-list"><li style="list-style-type:disc"><strong>render_log_gaussian</strong> : a HDR file by logarithmic merging using ‘gaussian’ weight with JPG files</li></ul><ul id="1e0232c0-a2b2-45ad-826a-2bb7ec3f6c69" class="bulleted-list"><li style="list-style-type:disc"><strong>raw_log_tent</strong> : a HDR file by logarithmic merging using ‘tent’ weight with TIFF files</li></ul><ul id="40cc89e7-9350-406f-a4d2-351dd5ad5b99" class="bulleted-list"><li style="list-style-type:disc"><strong>raw_log_gaus</strong> : a HDR file by logarithmic merging using ‘gaussian’ weight with TIFF files</li></ul><ul id="c22024c9-acdb-4fc1-92ed-73c1fc553ced" class="bulleted-list"><li style="list-style-type:disc"><strong>raw_linear_gaus</strong> : a HDR file by linear merging using ‘gaussian’ weight with TIFF files</li></ul><ul id="979739b9-62bb-401d-8fdf-813c589f0622" class="bulleted-list"><li style="list-style-type:disc"><strong>raw_linear_tent</strong> : a HDR file by linear merging using ‘tent’ weight with TIFF files</li></ul><ul id="015f9076-7f61-4cf5-9d18-64bd997fed79" class="bulleted-list"><li style="list-style-type:disc"><strong>render_linear_gaus</strong> : a HDR file by linear merging using ‘gaussian’ weight with JPG files</li></ul><ul id="9d20633d-b3ce-4d5c-b254-6063049c8cac" class="bulleted-list"><li style="list-style-type:disc"><strong>render_linear_tent</strong> : a HDR file by linear merging using ‘tent’ weight with JPG files</li></ul><p id="7371eeb7-e4db-4472-a5d9-d13d85dae19a" class="">
+</p><p id="34dbd8ec-f431-4830-841f-32c91c2add09" class="">Please refer to the attached ‘.hdr’ files for the outputs.</p><p id="ce0d9b64-fc57-484a-93c3-04dc1437cdff" class="">
+</p><h3 id="78694ed4-b636-4104-b77d-c4ca892c7c97" class=""><strong>1.3 EVALUATION</strong></h3><p id="c708ca01-ff69-4ede-a6d8-b9ea720db860" class="">To evaluate the results of HDR creation, I check the linearity of color in the checkerboard inside the image. </p><p id="0627bac9-f0fa-4251-8918-6a0ddbe2e414" class="">I crop the region of the checkerboard by predefined mask .npy file and crop a square that is fully contained within the patch(I also get coordinates of each region and store them to re-use).</p><figure id="83e4b0ab-edac-4922-9581-2e98dacc0605" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.08.51.png"><img style="width:1318px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.08.51.png"/></a></figure><figure id="18cd3993-277d-4eac-b177-6b5e95e9d21b" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.10.18.png"><img style="width:1528px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.10.18.png"/></a></figure><p id="3377a34f-e748-48b5-a9d5-9c8d0d41aea8" class="">
+</p><p id="f24777ac-1c18-4576-9f06-61694e6dd70f" class="">Then, I compute the patch averages by the function described below:</p><figure id="29d3324e-bd81-4586-884e-4e978547157d" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.11.22.png"><img style="width:1806px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.11.22.png"/></a></figure><p id="7f493f4f-ff07-44be-898c-7b9a1c10b8e0" class="">Note that we only need to extract its luminance(Y-channel). </p><figure id="e85400f7-c5e1-4668-90f9-071d32695946" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.13.13.png"><img style="width:1126px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.13.13.png"/></a></figure><p id="a23ccb33-0bbe-4b40-865d-8d07964581a2" class="">Therefore, I convert all the HDR images to the XYZ color space and calculate their averages of Y-channel. I add the epsilon to avoid zero-value in log.</p><figure id="c56202e9-27f6-46ca-89c6-b4d43b9e1263" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.16.49.png"><img style="width:1420px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.16.49.png"/></a></figure><p id="2f3abb31-0d3b-4c78-9998-51b6f320126b" class="">For a fair comparison, the six averages of each HDR should be standardized. The linear regression is performed by ‘<strong>linalg.lstsq</strong>’ and the least square errors are computed between the actual average luminance values and the linear fit I created.</p><figure id="414925b3-6608-45e0-b6f4-5350228f98d5" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.19.38.png"><img style="width:1366px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.19.38.png"/></a></figure><p id="cb8fa8ec-b83c-48f4-b118-6ca5d5d23ea5" class="">This is the result of linear regression and least square errors.</p><p id="9ab1784f-2c39-40d2-9021-f67b52d9a40e" class="">You can see that ‘<strong>render_linear_tent</strong>’ and &#x27;<strong>render_linear_gaus</strong>’ have invalid values so that they fail to show the well-down results. Also, ‘<strong>raw_log_tent</strong>’ and ‘<strong>raw_log_gaus</strong>’ show the high errors and  non-linear lines. However, ‘<strong>render_log_tent</strong>’, ‘<strong>render_log_gaus</strong>’, ‘<strong>raw_linear_tent</strong>’ and ‘<strong>raw_linear_gaus</strong>’ have straight linear lines and comparable errors. Among them, ‘<strong>raw_linear_tent</strong>’ achieves the least errors. From now on, I use ‘<strong>raw_linear_tent</strong>’ as a default for the rest of the section(tone-mapping).</p><p id="13792c39-785e-42b5-a2d2-e1b00eea2516" class="">
+</p><h3 id="3348bea0-9a99-486e-be52-7b9f29760189" class=""><strong>2.1. PHOTOGRAPHIC TONEMAPPING</strong></h3><p id="feb088b8-563d-4827-a352-ae290e306d62" class="">Given pixel values<strong> I_ij,HDR</strong> of a linear HDR image, photographic tonemapping is performed as follows:</p><figure id="a7b9c535-1aca-49c7-91bf-028a181d2163" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.37.13.png"><img style="width:928px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.37.13.png"/></a></figure><p id="c875c08b-9898-4e1f-9dca-8ecf2290a130" class="">So I implement these equations by python:</p><figure id="0b50f8fa-e6b4-4001-a7d8-05abc82a3885" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.36.47.png"><img style="width:1298px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.36.47.png"/></a></figure><p id="a82a5a81-de31-4a86-8fbc-a31f76e16f08" class="">I set the parameter B and K as 0.1 and 0.1 respectively.</p><figure id="3815e8d4-7213-4cf6-879d-b35b2199ae25" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.42.00.png"><img style="width:896px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.42.00.png"/></a></figure><p id="4b8e5d2a-745b-47a8-bcf8-1ea18e3d45b9" class="">First, I apply tone-mapping to each color channel separately.</p><p id="ae0a2b7c-1303-46f6-b66e-10f43dd02ae6" class="">
+</p><figure id="6ec7d12e-73c7-4667-af8b-7af903e8ec0f" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.42.27.png"><img style="width:1274px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.42.27.png"/></a></figure><p id="3028a743-c7b2-465d-8fae-ccd2628efdb7" class="">Second, I apply tone-mapping only to the luminance channel Y. I use ‘<strong>lrgb2xyz</strong>’ to convert the HDR image from RGB to XYZ, then convert the image from XYZ to xyY-space. The only Y-channel is processed by tone-mapping while leaving x,y untouched. Finally, I transform the color space xyY to XYZ, XYZ to RGB. </p><figure id="42c6fc5e-5627-4f59-a79f-e871a30b8e4b" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.46.49.png"><img style="width:2596px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.46.49.png"/></a></figure><p id="0e5cf7c5-a78d-408c-a571-96ce248c538f" class="">The left is the result of RGB tone-mapping and the right is the result of Y tone-mapping. Compared to the right one, the left one can remove the orange cast across the image and achieve the successful white-balancing. As a result, I prefer the result of RGB tone-mapping.</p><p id="9ae3dbad-cc86-4e45-9b04-18fa6bf5c242" class="">
+</p><h3 id="90076bd3-114f-4cec-b695-98b02a2d3063" class=""><strong>2.2. TONEMAPPING USING BILATERAL FILTERING</strong></h3><p id="803b80c8-0b5d-4762-ad87-42751aa1b7e0" class="">Given pixel values <strong>I_ij,HDR</strong> of a linear HDR image, tonemapping using bilateral filtering is performed through a sequence of steps:</p><figure id="ee8a6d7b-0bfe-4c77-b0bc-0ec4e1f52aef" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.52.38.png"><img style="width:1798px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.52.38.png"/></a></figure><p id="b787f3fa-8a9e-40d2-9396-ba081d0477b7" class="">I set a scale factor as 0.5.</p><p id="f2dd4f74-c9d5-4c52-b30d-30d327fd6529" class="">As the section 2.1, I follow the same steps to applying to each RGB-channel or only Y-channel. </p><figure id="20827c2a-2250-4b3b-a975-fd346b0ea5b0" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.55.06.png"><img style="width:2538px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_5.55.06.png"/></a></figure><p id="29966969-c49b-483d-94ae-484fc8d6b9c6" class="">The left is the result of RGB tone-mapping with bilateral filtering and the right is the result of Y tone-mapping with bilateral filtering.</p><p id="5f1e7461-321d-40c3-b0dc-1f4002702310" class="">Similar to the result of section 2.1,  the left one can remove the orange cast across the image compared to the right one. Also, I figure out that using bilateral filtering results saturation effects across the whole image. This effect may make the color appear better, but it may cause color distortion. Therefore, I prefer not using the bilateral filtering.</p><p id="7c970538-517b-4073-8eb5-1e3bcf9c55f0" class="">
+</p><h3 id="7b7179d1-69f2-4908-86a5-cfb2ad6af4a8" class=""><strong>BONUS: IMPLEMENT A DIFFERENT GRADIENT-DOMAIN PROCESSING ALGORITHM</strong></h3><p id="9e2cfdbe-3fd2-4aad-841d-cfd75e976e74" class="">According to the Fattal’s paper, ‘<em>Gradient Domain High Dynamic Range Compression</em>’, drastic changes in the luminance across a HDR image must give rise to large magnitude luminance gradients at some scale. Hence, we need to attenuate the gradients by penalizing larger gradients more heavily to compress the drastic luminance changes while preserving details.</p><p id="8c325698-8c84-498c-8ca5-96bb0788ea10" class="">To obtain the gradients, we need to generate the gaussian pyramid. The original paper construct the pyramids until the width and the height of downscaled images are at least 32. I also followed the paper and set the level as 4</p><figure id="9acbfc7b-3ca0-4695-9346-19be20953e79" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.10.09.png"><img style="width:1060px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.10.09.png"/></a></figure><p id="18dd4a32-b533-437d-89d2-11126f98706f" class="">Then, I compute the gradients ‘<strong>gradX</strong>’ and ‘<strong>gradY</strong>’ by computing the central differences. I also defined the scale factor ‘<strong>phi</strong>’ for each pixel based on the magnitude of the gradient there. </p><p id="0212e5b8-b16c-4fcd-8e01-e4beba59d92c" class="">Next, I gradually compute the gradient attenuation map ‘<strong>grad_atten</strong>’ from top to the bottom in the pyramid. I follow the equations in the paper:</p><figure id="7d8bb097-567e-4bbe-b39d-207dc242a6a6" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.18.06.png"><img style="width:670px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.18.06.png"/></a></figure><p id="a68f14fe-bcf1-4f76-913b-4719baa36db5" class="">Finally, the final gradient attenuation map ‘<strong>m_atten_map</strong>’ is the one at the top of the gradual attenuation maps.</p><p id="f6894c6b-eb30-416c-989f-a900e6b8b52a" class="">This process is implemented by this code:</p><figure id="157fc226-7e77-490b-b89c-61557ef73783" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.12.18.png"><img style="width:1226px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.12.18.png"/></a></figure><p id="71046046-ca9a-45be-b3fc-f6d632d787d5" class="">
+</p><p id="181d6ee7-5360-4c3a-ad4e-fc9c275a2aca" class="">The final gradient attenuation map is visualized as:</p><figure id="308197df-591f-4109-920e-8c6aea1b76c4" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.20.45.png"><img style="width:1060px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.20.45.png"/></a></figure><p id="ad380402-137d-4c89-8816-4e29ed1d4132" class="">
+</p><p id="233efe10-7039-491c-bcb6-2850900f79b2" class="">For the next step, we need to find an image <strong>I</strong> whose gradient looks like the attenuated gradient<strong> G</strong>. Accordingly, we need to solve the poisson equation defined as:</p><figure id="24cbf39a-aba1-454c-ad42-122a33e1d931" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.23.34.png"><img style="width:268px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.23.34.png"/></a></figure><p id="d4931804-e6bf-410e-96e2-69dbfc2ec3a8" class="">Therefore, we need to obtain the second derivative of the image and the divergence of the vector field G.</p><figure id="2ee44e8c-919a-4b52-beae-e1b316d437dd" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.29.53.png"><img style="width:1138px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.29.53.png"/></a></figure><figure id="59051254-c4a7-4dc7-9af0-0cf6a0ad2de2" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.30.02.png"><img style="width:944px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.30.02.png"/></a></figure><p id="f1ef8896-356e-42f4-a9e7-6026a7a0658f" class="">We can approximate these two values by two equations described in the original paper.</p><p id="ace32ff9-c3ab-4c7c-961e-70e0b6961de1" class="">
+</p><p id="dddd74a0-3305-4217-954d-6efc97e74e7a" class="">In this code, ‘gradX’, ‘gradY’ and ‘div_G’ is the laplacian gradients of an image and divergence of G respectively.</p><figure id="47cd8438-badc-49c7-8aa0-017c02d55f0b" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.25.56.png"><img style="width:1536px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.25.56.png"/></a></figure><figure id="09af00a8-fc16-4d7a-a113-49b8e2f08e34" class="image"><a href="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.32.59.png"><img style="width:1038px" src="imgs/Assignment4/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-20_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.32.59.png"/></a></figure><p id="47ff63df-b8fd-4c95-9fde-6a2b9c30a90a" class="">I successfully obtain div G as shown in this picture.</p><p id="821c1f5c-5e4c-4dd9-8c3f-a74cde8ab536" class="">
+</p><p id="e164b3be-229a-4cc7-b699-815b97cdff20" class="">The final step left is the solution of a poisson equation.</p><p id="11f463b3-c422-44d1-8b86-7a52d172c7a6" class="">However, there is no official library for poisson equation solver in python compared to Matlab.</p><p id="6e68d7be-0a9a-4f74-b8ce-66ebfb22ca8b" class="">Although I use an unofficial github code(<a href="https://github.com/zaman13/Poisson-solver-2D">https://github.com/zaman13/Poisson-solver-2D</a>), I fail to reconstruct the well-made final image because of my lack of knowledge about controlling the poisson equation solver.</p><p id="b25796ff-6877-4fc2-9dde-2489696939f3" class="">However, I attach the final HDR results ‘gradient_tm.hdr’. You can check it.</p><p id="aafbaad0-1f4f-4192-b7dc-94cfd0b40f1c" class="">
+</p><p id="dc32c3e9-0685-4ab8-86b7-5efeee90716b" class="">
+</p><h3 id="68438147-c5a3-4415-92b4-a9f7f461c156" class="">ETC</h3><p id="96505ca6-e5b8-4572-a9da-90bd8dbb5fb6" class="">I attached the input images and the result images. Please check the final results by watching them!</p><p id="40db1bbd-30f7-4f73-b7bd-b414601ca4ea" class="">
+</p></div></article></body></html>
