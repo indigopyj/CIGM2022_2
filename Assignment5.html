@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignment5</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fd435cc8-d3a0-40b2-abc9-5c0aaff9b442" class="page sans"><header><h1 class="page-title">Assignment5</h1></header><div class="page-body"><p id="9368abbf-0a2f-4628-a958-ef5a9c1729ed" class=""><strong>written by 20214396, Yeojeong Park</strong></p><h2 id="92b9c88c-5fcb-43f8-9ca9-58392fd76c95" class="">0. How to run the file</h2><p id="c55eb0c4-98d1-4d4c-98c2-5977fb04848f" class="">First, run the jupyter notebook and open</p><pre id="cb27027f-a5dc-423f-ba8a-60865a84b39f" class="code"><code>jupyter notebook</code></pre><p id="4303b319-6bf9-45e6-9ed2-42ca84086df0" class="">This will print some information about the notebook server in your terminal, including the URL of the web application (by default, <a href="http://localhost:8888/">http://localhost:8888</a>)</p><p id="97a401b9-b47c-4523-8dbe-5de0e7f55b25" class="">Second, if you run the web application, click the file named<strong> ‘Assignment2.ipynb’. </strong></p><p id="004c48d2-dd3b-474e-b0b2-e61fddd94e8d" class="">Then, click the [Cell]-[Run All] from the menu bar.</p><figure id="5b70ce1e-4f1f-4f23-adc3-78b69d909337" class="image"><a href="imgs/Assignment5/Untitled.png"><img style="width:459px" src="imgs/Assignment5/Untitled.png"/></a></figure><p id="51fff8e5-f1ff-4cf1-9831-3f3bc24664e7" class="">
+</p><p id="7228bebd-7bdc-4333-900d-8eaebc853587" class="">
+</p><h2 id="466ba9f7-24f9-4839-b6ed-c621ba54ca86" class="">1. Report</h2><h3 id="6f90db96-2794-4e01-9317-d253344d129c" class=""><strong>Initials (5 points)</strong></h3><figure id="e633856b-c1ca-41db-8944-05ba12105881" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.28.29.png"><img style="width:451px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.28.29.png"/></a></figure><p id="971d6064-361e-4ba6-86bb-6d5edc07dbd0" class="">
+</p><p id="bdf83b0f-6811-4d3a-bc99-a9d60997c0df" class="">Firstly, I load the light field image and create a 5-dimensional array L(u,v,s,t,c) from it. The first and second dimension (u,v) is for aperture plane. The third and fourth dimension (s,t) is for sensor plane, and the last one is for RGB channel. Here, I set the lenslet size as 16x16, following the paper. Here, we finally generate L array shaped as <strong>16x16x400x700x3</strong>.</p><h3 id="6d5a7b90-5274-423b-88be-a36ba290d1c8" class=""><strong>Sub-aperture views (20 points)</strong></h3><p id="51bbec4e-aa05-4c9e-b1cb-30da79f2ccb3" class="">In this section, I create images with different viewpoints by collecting different points on the camera aperture through each pinhole. These images are called `<strong>sub-aperture views</strong>’. This is equivalent to taking a slice of the light field of the form L(u=u_0, v=v_0, s, t, c) for some u_0 and v_0 which is the point of the pinhole on the aperture.</p><figure id="b50830a1-2634-4d42-844e-fbb3ec72fe08" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.38.14.png"><img style="width:464px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.38.14.png"/></a></figure><p id="1a4e0eab-4da2-4422-b177-cd0da61b339b" class="">The mosaic image is composed of 16x16 number of 400x700 images, where vertical dimension means increasing u values and the horizontal one means increasing v values. </p><figure id="8cfdd5cd-8382-42f0-9382-a74582515915" class="image"><a href="imgs/Assignment5/mosaic_resize.png"><img style="width:560px" src="imgs/Assignment5/mosaic_resize.png"/></a></figure><p id="f6d4c40d-cf25-4162-85b8-6b6c961c1a04" class="">The above image is the final result of the 2D mosaic. Due to the limited memory of uploading, I resized the image to smaller size. I attached the original image ‘<strong>mosaic_img.png</strong>’ in the ‘<strong>results/</strong>’ folder.</p><p id="0e21fdbe-8881-40f2-bced-ae8f538cd643" class="">
+</p><figure id="f38ee455-7657-46fd-9a6b-8860097bd5a5" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.43.19.png"><img style="width:1391px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.43.19.png"/></a></figure><p id="7a85c1a5-d18d-49f9-a9cc-3f59a40d8a6c" class="">This is the result of (0,0) image among 16x16 images.</p><figure id="0a8f9cae-6edb-42a9-96ab-dc7deeeea7e1" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.43.37.png"><img style="width:1396px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.43.37.png"/></a></figure><p id="34f63255-cdfa-47a1-ab1e-6fbce19f75dc" class="">This is the result of (15,15) image among 16x16 images.</p><p id="ef167370-5dc3-454c-9a25-a656b3456eb9" class="">You can check that position of four corners of the chessboard is slightly moved between two images, since they are the images captured from different viewpoints.</p><p id="986efc31-9d21-4437-bddf-800ed2d288ae" class="">
+</p><h3 id="d82d3d79-e805-4c86-8f55-3d342f7e57c9" class=""><strong>Refocusing and focal-stack generation (40 points)</strong></h3><p id="9a9672d2-9de4-4bea-a595-b79fcb74854a" class="">To refocus images at different depths is described as the below image:</p><figure id="84264344-3ba4-477f-b1dd-4bcc1297c143" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.59.02.png"><img style="width:362px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.59.02.png"/></a></figure><p id="28cd98ae-4380-4905-8583-18947ea48335" class="">(The image is from <a href="https://koreascience.kr/article/JAKO201216238707868.pdf">https://koreascience.kr/article/JAKO201216238707868.pdf</a> )</p><p id="b580dcbd-f7ab-42ed-8002-366a1db136c1" class="">If there is a synthetic sensor plane between the aperture and the sensor plane, we can obtain the refocused image by summing values of the light field approaching the specific points on the synthetic plane. According to the property of similarity of triangles, it can be predicted by the light field on the sensor plane. Suppose the light field L(u,v,s,t,c) is continuous function, then the refocused image <strong>I(x’,y’)</strong> is computed by the following equation,</p><figure id="3ecc7a2c-0482-4e38-99f9-dac7145b2df7" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_9.21.31.png"><img style="width:1049px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_9.21.31.png"/></a></figure><p id="993f1463-09bc-4443-98fb-8eceae51ed78" class="">I implemented this equation by python code.</p><figure id="bbcaecd5-8dab-47e3-b639-5a67963e313d" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.57.29.png"><img style="width:647px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_8.57.29.png"/></a></figure><p id="91ff8540-6e49-4636-b908-0eca496c5291" class="">Note that I set <strong>(1-1/alpha)</strong> as depth <strong>d</strong> and the (u,v) coordinates are represented as relative values to the center of each lenslet. In practice, v-dimension should be a negative shift since the image is flipped on the synthetic plane compared to the final image. I also normalized summed values by the number of the valid pixels.</p><p id="ca0f4198-bd92-48f5-a398-cbe1282a5e85" class="">I generate 6 images with [0, 0.3, 0.6, 0.9, 1.2, 1.5] depth values, respectively.</p><figure id="69994ac1-87e9-4cac-b9d9-ac948bda2771" class="image"><a href="imgs/Assignment5/refocus_1.png"><img style="width:700px" src="imgs/Assignment5/refocus_1.png"/></a></figure><p id="78d11264-25a0-45a6-b929-bb1e8997514a" class=""><em>depth = 0.0</em></p><figure id="518f5d38-396c-470b-8891-34896d432c29" class="image"><a href="imgs/Assignment5/refocus_1.5.png"><img style="width:700px" src="imgs/Assignment5/refocus_1.5.png"/></a></figure><p id="07a04551-b784-468c-ac1e-194724a07ce3" class=""><em>depth = 0.3</em></p><figure id="5073135c-18d4-4ef8-99cd-aa704a112fcc" class="image"><a href="imgs/Assignment5/refocus_2.5.png"><img style="width:700px" src="imgs/Assignment5/refocus_2.5.png"/></a></figure><p id="ef370b02-29df-4c1d-b97d-c778eaf1f1cf" class=""><em>depth = 0.6</em></p><figure id="576c9b64-c2b0-41a2-8510-0af0f6c9536d" class="image"><a href="imgs/Assignment5/refocus_10.png"><img style="width:700px" src="imgs/Assignment5/refocus_10.png"/></a></figure><p id="5691d4b7-5534-4ebd-b938-f936fdc05d36" class=""><em>depth = 0.9</em></p><figure id="f7be9511-90a5-49af-aac1-dd62d9cee021" class="image"><a href="imgs/Assignment5/refocus_-5.png"><img style="width:700px" src="imgs/Assignment5/refocus_-5.png"/></a></figure><p id="32b28006-1dff-48fd-952d-61a7cdd89835" class=""><em>depth = 1.2</em></p><figure id="dc141775-a60f-48f1-a859-e0ec96c55070" class="image"><a href="imgs/Assignment5/refocus_-2.png"><img style="width:700px" src="imgs/Assignment5/refocus_-2.png"/></a></figure><p id="aa878c9f-6e3f-4eb9-8360-24a00eef9dac" class=""><em>depth = 1.5</em></p><p id="865b3011-b1b0-41e1-94c7-f8ec730c7fdd" class="">
+</p><h3 id="a1a80baa-66c0-468c-90e2-ce07840aa330" class=""><strong>All-focus image and depth from defocus (35 points)</strong></h3><p id="dae8b0b1-1290-4a79-a2ab-9efa5e55c417" class="">In order to merge several refocused images to a new all-focus image, we need to compute per-pixel and per-image weights by gaussian blur, described as the following steps:</p><ol type="1" id="45a3c034-8508-4b75-a409-76551ddca62f" class="numbered-list" start="1"><li>For every image in the focal stack, first convert it to the XYZ colorspace, and extract the luminance channel.</li></ol><ol type="1" id="6f83ed58-f497-48a7-bc29-7c9efc245156" class="numbered-list" start="2"><li>Create a low frequency component by blurring it with a Gaussian kernel of standard deviation 𝜎_1.</li></ol><ol type="1" id="02aeb2e1-b7e3-4bef-a570-63cc9e2ac762" class="numbered-list" start="3"><li>Compute a high frequency component by subtracting the blurry image from the original.</li></ol><ol type="1" id="18086da1-8e98-43f8-b5c7-777d574de3dd" class="numbered-list" start="4"><li>Compute the sharpness weight by blurring the square of high frequency component with another Gaussian kernel of standard deviation 𝜎_2.</li></ol><p id="419a01f1-439f-44b8-a36f-8a1234e6319c" class="">
+</p><p id="1c878382-1477-4f06-8423-10375f8f3b6d" class="">I implement these steps by python.</p><figure id="07b1d834-ae8f-4312-9204-e2adf828a99f" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_9.42.53.png"><img style="width:716px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_9.42.53.png"/></a></figure><p id="c1657139-41b8-43c1-89de-f76d56e877dc" class="">A variable ‘weight_list’ contains each weight for each 6 refocused images. Also, I set both 𝜎_1 and 𝜎_2 as 0.5. I used ‘XYZ2xyY’ and ‘lRGB2XYZ’ functions from the previous assignment. </p><p id="677aeb30-4d6f-4bc3-a5db-ae7d9a152f25" class="">After obtaining the sharpness weight, the final all-focus image is computed as </p><figure id="a87e9e05-2a83-4d3e-829c-537c3f695618" class="image"><a href="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_9.54.58.png"><img style="width:493px" src="imgs/Assignment5/%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2022-11-28_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_9.54.58.png"/></a></figure><p id="a92ef592-8a86-4a92-a0e3-27097e3e5c9f" class="">Also I visualize the depth map using the weight maps.</p><figure id="95e693f2-dab2-414d-808b-c96034106878" class="image"><a href="imgs/Assignment5/depth_map.png"><img style="width:700px" src="imgs/Assignment5/depth_map.png"/></a></figure><p id="2821eb87-df3f-4482-9646-be726310546b" class="">
+</p><figure id="610a8334-36cc-46fe-9379-4e082a096dfe" class="image"><a href="imgs/Assignment5/all_focus.png"><img style="width:700px" src="imgs/Assignment5/all_focus.png"/></a></figure><p id="80df4f32-996a-4b26-a232-84340c8827e7" class="">Also, this is the final result of all-focusing.</p><h3 id="08b01264-1138-42c0-bd58-15362f166672" class="">ETC</h3><p id="7946f5b5-ffd6-4c0b-bac1-eb5909ca73ca" class="">I attached the input images and the result images. Please check the final results by watching them!</p><p id="3ef4e91a-7a56-4b87-b444-be4de669f526" class="">
+</p><ul id="8ec78724-db46-4d04-ac9f-1b4247a838cf" class="bulleted-list"><li style="list-style-type:disc"></li></ul></div></article></body></html>
